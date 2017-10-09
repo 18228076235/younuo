@@ -1,0 +1,39 @@
+@charset "UTF-8";
+#btn_img { width: 1168px; margin: 30px auto; }
+
+#btn_img a { margin: 8px; }
+
+/*搴曢儴*/
+.forbtn { position: relative; height: 250px; padding-top: 50px; }
+
+footer { height: 200px; background: #71BCBE; overflow: hidden; }
+
+.to_top { position: absolute; width: 50px; height: 50px; border-radius: 50px; background: #eee; text-align: center; line-height: 50px; font-weight: bolder; font-size: 13px; top: 25px; left: 48%; }
+
+.to_top a { color: #aaa; }
+
+footer a { color: white; font-size: 12px; }
+
+footer .cnt { width: 1040px; height: 120px; margin: 0 auto; margin-top: 50px; }
+
+footer .cnt .left { width: 240px; margin-left: 10px; float: left; }
+
+footer .cnt .left .icon { width: 70px; height: 35px; }
+
+footer .cnt .left .icon a:nth-child(1) { float: left; display: block; width: 30px; height: 30px; background: url(../img/index/w_icon.png) no-repeat left top; }
+
+footer .cnt .left .icon a:nth-child(2) { float: right; display: block; width: 30px; height: 30px; background: url(../img/index/w_icon.png) no-repeat right top; }
+
+footer .cnt .left p { color: white; font-size: 12px; line-height: 25px; }
+
+footer .cnt .center { width: 580px; float: left; }
+
+footer .cnt .center dl { width: 193px; float: left; text-align: center; }
+
+footer .cnt .right { width: 200px; float: left; text-align: center; }
+
+.btnn .footer-img { height: 120px; width: 1263px; background: #E5F3F4 url(../img/index/footer.jpg) no-repeat center center; }
+
+.btnn .footer-beian { width: 1263px; height: 120px; background: url(../img/index/footer_beian.jpg) no-repeat center center; }
+
+/*# sourceMappingURL=foot.css.map */

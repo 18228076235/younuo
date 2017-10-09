@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/foot.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/register.css"/>
+		<script src="../lib/require.js" data-main = "../js/register.js"></script>
+	</head>
+	<body>
+		<div class="header"></div>
+		<!--主要内容区-->
+		<div id="login">
+			<div class="login-cnt">		
+				<div class="right">
+					<form id="login-form">
+						<ul>
+							<li>
+								<p>会员注册</p>
+							</li>
+							<li>
+								<input type="text" id="loginName" placeholder="手机号码"/>
+								<span id="loginName_error"></span>					
+							</li>
+							<li>
+								<input type="text" id="loginPas" placeholder="图片验证码"/>
+								<img src="" id="checkCode"/>
+								<span id="img_error"></span>
+							</li>
+							<li>
+								<input type="text" id="loginPas" placeholder="手机验证码"/>							
+								<a href="##" id="sent-code">发送验证码>></a>	
+								<span id="phone_error"></span>
+							</li>
+							<li>
+								<input type="password" placeholder="密码" id="pas"/>
+								<span id="Code_error">密码必须是6-30位字符，可使用字母、数字</span>		
+							</li>
+							<li><input type="password" placeholder="确认密码" id="checkpas"/>
+								<span id="checkCode_error"></span>
+							</li>
+							<li>
+								<i></i>
+								<em id="check-img"></em>
+								<input type="checkbox" id="agrement"/>
+								<p><a href="##">同意 《优糯用户服务协议》</a></p>
+							</li>
+							<li>
+								<input type="button" id="login_btn" value="提交"/>							
+							</li>					
+						</ul>					
+					</form>
+				</div>
+				<div class="back">
+					<a href="login.html">
+						<i></i>
+						<p>我已注册  ,<br>现在就<font class="red">登录</font></p>
+					</a>				
+				</div>
+			</div>
+		</div>
+		
+		<!--登录成功界面-->
+		<div class="sucees">
+			<p>注册成功</p>
+			<p>注册成功,正在跳转到登录页面请稍后</p>
+		</div>
+		<div class="footer"></div>			
+	</body>
+</html>

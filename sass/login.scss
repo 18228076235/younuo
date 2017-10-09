@@ -1,0 +1,171 @@
+body{position: absolute;}
+.sucees{
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    border: 2px solid #AAAAAA;
+    top: 10%;
+    left: 35%;
+    z-index: 999;
+    background: white;
+    display: none;
+}
+.sucees p:nth-child(1){
+    height: 50px;
+    color: #1B8C86;
+    line-height: 50px;
+    padding-left: 20px;
+    border-bottom: 2px solid #AAAAAA;
+}
+.sucees p:nth-child(2){
+    color: #71BCBE;
+    line-height: 100px;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+#login{
+    width: 100%;
+    margin: 130px auto 0px auto;
+    overflow: hidden;
+}
+#login .login-cnt{
+    width: 1100px;
+    margin: 0 auto;
+}
+#login .login-cnt .left{
+    float: left;
+    margin-right: 50px;
+}
+#login .login-cnt .left img{
+    width: 500px;
+    height: 400px;
+    margin-top: 50px;
+}
+#login .login-cnt .right{
+    width: 400px;
+    height: 400px;
+    float: left;
+    margin-top: 40px;
+}
+#loginName_error,#loginPas_error,#checkCode_error,#fale_error{
+    font-size: 12px;
+    color: #b0916a;
+}
+#fale_error{    
+    margin-top: 10px;
+    display: block;
+}
+#login .right #login-form ul li:nth-child(1) p{
+    width: 340px;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 20px;
+    color: #767676;
+    padding-bottom:10px ;
+}
+#login .right #login-form ul li input{
+    width: 235px;
+    height: 40px;
+    padding: 5px 10px 5px 45px;
+    border: none;
+    line-height: 40px;
+    color: #767676;
+    margin-top: 10px;
+    background:#f0f0f0;
+    font-size: 18px;
+}
+#login .right #login-form ul li:nth-child(3) input{
+    background: url(../img/index/icon.png) no-repeat #f0f0f0;
+        background-position: -350px -339px;
+}
+#login .right #login-form ul li:nth-child(2) input{
+    background: url(../img/index/icon.png) no-repeat #f0f0f0;
+        background-position: -350px -290px;
+}
+
+#login .right #login-form ul li:nth-child(4) span{
+    display: block;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#login .right #login-form ul li a{
+    display: block;
+    font-size:12px ;
+}
+#login .right #login-form ul li:nth-child(7){
+    width: 340px;
+    height: 50px;
+}
+#login .right #login-form ul li:nth-child(7) input{
+    padding: 0 60px;
+    width: 150px;
+    background: #1b8c86;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    height: 34px;
+    line-height: 34px;  
+    border-radius: 3px;
+    float: left;
+    cursor: pointer;
+}
+
+#login .right #login-form ul li:nth-child(7) a{
+    float: left;    
+    width: 80px;
+    height: 50px;
+    color: #1b8c86;
+    line-height: 50px;
+    margin-left: 20px;  
+}
+#login .right #login-form ul li:nth-child(8){
+    width: 400px;
+    height: 20px;
+    margin-top: 5px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+#login .right #login-form ul li:nth-child(8) span{
+    float: left;
+    width: 115px;   
+    font-size: 12px;
+    color: #696969;
+    
+}
+#login .right #login-form ul li:nth-child(8) a{
+    float: left;    
+    width: 80px;
+    color: #a5002f; 
+}
+#login .right #login-form ul li:nth-child(9){
+    font-size: 12px;
+    color: #696969;
+    margin-top: 8px;
+}
+#login-form ul li:nth-child(9) dl dd a{
+    color: #71bcbe;    
+} 
+#login-form ul li:nth-child(9) dl dd{
+    float: left;
+    margin-top: 12px;   
+}
+#login-form ul li:nth-child(9) dl dd:nth-child(1){
+    background: url(../img/index/icon.png) no-repeat;
+     background-position: -8px -368px;
+     width: 130px;
+      padding-bottom: 5px;
+}
+#login-form ul li:nth-child(9) dl dd:nth-child(2){
+    background: url(../img/index/icon.png) no-repeat;
+    background-position: -148px -368px;
+     width: 110px;
+     padding-bottom: 5px;
+}
+.to_top{
+    display: none;
+}

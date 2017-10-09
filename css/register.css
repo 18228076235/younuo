@@ -1,0 +1,73 @@
+body { position: absolute; }
+
+.sucees { position: absolute; width: 400px; height: 150px; border: 2px solid #AAAAAA; top: 10%; left: 35%; z-index: 999; background: white; display: none; }
+
+.sucees p:nth-child(1) { height: 50px; color: #1B8C86; line-height: 50px; padding-left: 20px; border-bottom: 2px solid #AAAAAA; }
+
+.sucees p:nth-child(2) { color: #71BCBE; line-height: 100px; text-align: center; font-size: 12px; }
+
+#login { width: 100%; margin: 130px auto 0px auto; overflow: hidden; }
+
+#login .login-cnt { width: 1100px; margin: 0 auto; }
+
+#login .login-cnt .right { width: 500px; float: left; margin-top: 40px; }
+
+#login .login-cnt .right li { width: 600px; height: 50px; margin-top: 10px; }
+
+#loginName_error, #loginPas_error, #checkCode_error, #fale_error, #phone_error, #Code_error { font-size: 12px; color: #b0916a; margin-left: 10px; float: left; margin-top: 20px; display: block; width: 250px; }
+
+#phone_error { margin-top: 0px; }
+
+#fale_error { margin-top: 5px; display: block; }
+
+#login .right #login-form ul li:nth-child(1) p { width: 340px; border-bottom: 1px solid #CCCCCC; font-size: 20px; color: #767676; padding-bottom: 10px; }
+
+#login .right #login-form ul li input { width: 290px; height: 50px; padding: 5px 10px 5px 45px; border: none; line-height: 50px; color: #767676; background: #f0f0f0; font-size: 18px; float: left; }
+
+#login .right #login-form ul li:nth-child(3) input { background: url(../img/dessert/icon.png) no-repeat #f0f0f0; background-position: -350px -435px; }
+
+#login .right #login-form ul li:nth-child(3) img { display: block; width: 100px; height: 30px; float: left; margin-top: 5px; font-size: 20px; margin-left: 10px; text-align: center; line-height: 40px; cursor: pointer; }
+
+#login .right #login-form ul li:nth-child(3) #img_error { font-size: 12px; color: #b0916a; margin-left: 10px; float: left; margin-top: 0px; display: block; height: 0px; width: auto; }
+
+#login .right #login-form ul li:nth-child(2) input { background: url(../img/dessert/icon.png) no-repeat #f0f0f0; background-position: -350px -480px; }
+
+#login .right #login-form ul li:nth-child(4) input { background: url(../img/dessert/icon.png) no-repeat #f0f0f0; background-position: -350px -435px; }
+
+#login .right #login-form ul li:nth-child(5) input { background: url(../img/dessert/icon.png) no-repeat #f0f0f0; background-position: -350px -335px; }
+
+#login .right #login-form ul li:nth-child(6) input { background: url(../img/dessert/icon.png) no-repeat #f0f0f0; background-position: -350px -385px; }
+
+#login .right #login-form ul li:nth-child(4) a { color: white; cursor: pointer; background: #1b8c86; padding: 3px 10px; border-radius: 2px; float: left; margin: 8px 100px 0px 10px; }
+
+#login .right #login-form ul li a { font-size: 12px; display: block; }
+
+#login .right #login-form ul li:nth-child(7) { width: 600px; height: 50px; float: left; line-height: 50px; margin-top: 10px; position: relative; }
+
+#login .right #login-form ul li:nth-child(7) a { color: #71BCBE; float: left; margin-left: 20px; }
+
+#login .right #login-form ul li:nth-child(7) i { width: 15px; height: 15px; display: block; float: left; margin: 17px 0px 4px 0px; background: #f0f0f0; }
+
+#login .right #login-form ul li:nth-child(7) #agrement { border: none; width: 20px; height: 20px; position: absolute; left: 0; opacity: 0; top: 15px; }
+
+#login .right #login-form ul li:nth-child(7) em { width: 50px; height: 50px; display: block; background: url(../img/about/ok.png) no-repeat center center; background-position: -4px -280px; float: left; position: absolute; }
+
+#login .right #login-form ul li:nth-child(8) input { margin-left: 45px; width: 160px; height: 34px; background: #1b8c86; color: white; border-radius: 3px; text-align: center; line-height: 34px; font-size: 13px; padding-left: 10px; }
+
+.back { width: 500px; height: 500px; float: left; }
+
+.back a { display: block; width: 150px; height: 50px; margin: 200px auto; color: #71bcbe; font-size: 14px; }
+
+.back a p .red { color: #a5002f; margin-left: 3px; }
+
+.back a p:hover { color: #b0916a; }
+
+.back a p:hover .red { color: #b0916a; }
+
+.back a i { width: 43px; height: 39px; background: url(../img/dessert/icon.png) no-repeat; background-position: -203px -404px; display: block; float: left; }
+
+.back a:hover i { background: url(../img/dessert/icon.png) no-repeat; background-position: -203px -443px; }
+
+.to_top { display: none; }
+
+/*# sourceMappingURL=register.css.map */
