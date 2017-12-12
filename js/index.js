@@ -1,9 +1,16 @@
 require(["config"],function(){
-	require(["jquery","load"],function($){	
+	require(["jquery","load","cookie","cart"],function($,load,cookie,cart){
 		index={
 			init:function(){
+			this.nav()	
 			this.play_img()
 			this.main()
+			},
+			//导航
+			nav:function(){
+				setTimeout(function(){
+				$('.menu li').eq(0).addClass('color')				
+				},100)
 			},
 			//轮播图
 			play_img:function(){
@@ -35,22 +42,52 @@ require(["config"],function(){
 			//主要内容
 			
 		main:function(){
-			//加入购物车
-			if($.cookie('cart')==undefined){
-			var obj={};
-			}else{
-			var s=JSON.parse($.cookie('cart'))
-			obj = s ;
-			}
 			
+			//点击导航栏改变对应数据
+			$('#top_list li').click(function(){
+				$(this).addClass('top_btn').siblings().removeClass("top_btn")
+				if($('#top_list li').index($(this))==0){
+					data(58,105);
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)					
+				}
+				else if($('#top_list li').index($(this))==1){
+					data(58,70)
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)					
+				}
+				else if($('#top_list li').index($(this))==2){
+					data(70,76)
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)
+				}
+				else if($('#top_list li').index($(this))==3){
+					data(76,91)
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)
+				}
+				else if($('#top_list li').index($(this))==4){
+					data(91,102)
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)
+				}
+				else{
+					data(102,105)
+					$('#main_cont').fadeTo(1000,0)
+					$('#main_cont').fadeTo(100,1)
+				}
+			})
+						
+			data(58,105)
+			function data(m,n){
 			var main_cont=$('#main_cont');					
 			//主要内容区
 			$.ajax({
 				type:"get",
-				url:"../mock/index.json",	
-				success:function(data){
+				url:"../mock/dessert.json",	
+				success:function(data){					
 				var str='';
-				for(var j=0;j<data.length;j++){
+				for(var j=m;j<n;j++){
 					str+='<li class="boss"><a class="out_a">'+
 							'<div class="outbig"><img src='+data[j].pic+' class="bimg"/></div>'+
 							'<div class="mword">'+
@@ -62,7 +99,7 @@ require(["config"],function(){
 									'<p>'+data[j].cont+"/"+data[j].pric+'</p>'+
 									'<p>甜蜜指数：</p>'+
 								'</div>'+					
-								'<span class="out_cart"><a href="##"></a></span>'+
+								'<span class="out_cart"><a href="javascript:void(0)"></a></span>'+
 							'</div>'+
 							'<div class="over"><img src="../img/index/shouqing.png"/></div>'+
 						'</a></li>'+//购物车详情
@@ -76,7 +113,7 @@ require(["config"],function(){
 									"<li>"+data[j].figer+"</li>"+
 									"<li>"+data[j].pric+"</li>"+
 									"<li>数量<span class='jian'>-</span><em>1</em><span class='add'>+</span></li>"+
-									"<li><a href='##' class='add_cart'>加入购物车</a><a href='##' class='to_buy'>立即购物</a></li></ul>"
+									"<li><a href='javascript:void(0)' class='add_cart'>加入购物车</a><a href='##' class='to_buy'>立即购物</a></li></ul>"
 					}
 				
 				main_cont.html(str);
@@ -84,8 +121,9 @@ require(["config"],function(){
 				$('out_a').css('display','block')
 				//点击购物车出现对应的购物车弹框
 				$('.outbig').click(function(){				
-					var j=$('.outbig').index(this)
-					$(this).parent().attr('href','detail/'+data[j].id+'.html')
+					var j=($('.outbig').index(this))+m
+					/*$.cookie("detail",data[j].id)*/
+					$(this).parent().attr('href','detail001.html?cakeId='+data[j].id)
 				})
 
 				$('.out_cart').click(function(){
@@ -99,12 +137,12 @@ require(["config"],function(){
 					$('#addcart').html( $('.try_it').eq(0).css('display','block'))
 				
 					var t=$(window).scrollTop()
-					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()/2
+					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()
 					$('#addcart').css("top",h+'px')
 					//然#addcart始终居中
 					$(window).scroll(function(){
 					var t=$(window).scrollTop()
-					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()/2
+					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()
 					$('#addcart').css("top",h+'px')
 					})
 					
@@ -143,44 +181,23 @@ require(["config"],function(){
 					$('.to_buy').click(function(){
 						$('#addcart').css('display','none')
 						if($.cookie('user')==undefined){
-							$('.to_buy').attr('href','../center/center.html')
+							$('.to_buy').attr('href','login.html')
 						}else{
+							var cont=$('.jian').next().html()
+							var j=($('.outbig').index(this))+m
+							$('.to_buy').attr('href','pay_now.html?cpId='+data[j].id+'&n='+cont)
 						}	
 					})
 					
 					//加入购物车
 					$('.add_cart').click(function(){
-						if($.cookie('user')==undefined){
-							$('.add_cart').attr('href','../center/center.html')
-						}else{
-							$('.sucees').css('display','block');
-							$('.showdo').css({display:'block',background:'rgba(255, 251, 240, 0.5)'});
-							$('.sucees').css("top",h+'px');	
-							$('#addcart').css('display','none')
-							var numid=$('.try_it').eq(m).attr('data-id')
-							var sum=Number($('.try_it em').html());
-							if(obj[numid]==undefined){
-								obj[numid]=sum;
-							}else{
-								var sum2=obj[numid];
-								sum += sum2
-								obj[numid]=sum
-							}
-							var objstr=JSON.stringify(obj);	
-							$.cookie('cart',objstr,{expires:7,path:'/'})							
-							setTimeout(function(){
-							$('.sucees').css('display','none');	
-							$('.showdo').css("display","none");	
-							
-							},1000);						
-							var totle=0;
-							var s=JSON.parse($.cookie('cart'))
-							for(var sun in s){
-								totle+=s[sun];
-							}
-							$('#shopcart a').html(totle)
-					}
+						//调用购物车
+						var id=$('.try_it').eq(m).attr('data-id')
+						var cont=Number($('.try_it em').html());
+						cart.cart(cont,id)
 					})
+					//
+					$('.showdo').css({display:'block',background:'rgba(10, 10, 10, 0.5)'})
 										
 					//点击×关闭addcart和showdo
 					var close=$('.try_it').eq(0).children().eq(0)
@@ -207,8 +224,7 @@ require(["config"],function(){
 				
 				main_cont.on('mouseleave','.boss',function(){				
 					$('.pro_box').css('bottom',0)
-				})
-				
+				})				
 				//告罄
 				for(var i=0;i<outbig.length;i++){					
 					if(data[i].selout==0){
@@ -216,14 +232,13 @@ require(["config"],function(){
 						}
 					}				
 				}					
-			});			
+			});	
+			
+			}
 		}
 			
 		}		
-		index.init()
-		
-		
-			
+		index.init()			
 		
 	});
 })

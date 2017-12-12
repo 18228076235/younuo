@@ -1,6 +1,7 @@
 require(["config"],function(){
-	require(["jquery","load"],function($){
-		var reout	
+	require(["jquery","load"],function($){		
+	//导航
+	var reout	
 	//同意《优糯用户服务》	
 	$('#agrement').click(function(){
 		if($('#agrement').prop('checked')==true){
@@ -34,7 +35,7 @@ require(["config"],function(){
 			$('.sucees').css('display','block');
 			setTimeout(function(){
 			$('.sucees').css('display','none');	
-			$(location).attr('href','center.html');
+			$(location).attr('href','login.html');
 			},3000);			
 		},"json")
 	}

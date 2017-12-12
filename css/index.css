@@ -92,7 +92,7 @@ body { width: 100%; height: 100%; position: relative; }
 
 #addcart .try_it li:nth-child(9) em { color: #b0916a; padding: 2px 13px; font-style: normal; font-size: 12px; }
 
-#addcart .try_it li:nth-child(10) a { width:45%;display:block;line-height:25px;height:25px;text-align:center;float:left;color: white;background: #1b8c86;margin-left:5px ;border-radius: 2px; }
+#addcart .try_it li:nth-child(10) a { width: 45%; display: block; line-height: 30px; height: 30px; text-align: center; float: left; color: white; background: #1b8c86; margin-left: 5px; border-radius: 2px; font-size: 13px; }
 
 #addcart .try_it li:nth-child(10) { margin-top: 24px; }
 
@@ -101,5 +101,12 @@ body { width: 100%; height: 100%; position: relative; }
 #btn_img { width: 1168px; margin: 30px auto; }
 
 #btn_img a { margin: 8px; }
+
+.sucees { position: absolute; width: 350px; height: 150px; border: 2px solid #AAAAAA; top: 10%; left: 35%; z-index: 999; background: white; display: none; }
+
+.sucees p:nth-child(1) { height: 50px; color: #1B8C86; line-height: 50px; padding-left: 20px; border-bottom: 2px solid #AAAAAA; }
+
+.sucees p:nth-child(2) { color: #71BCBE; line-height: 100px; text-align: center; font-size: 12px; }
+
 
 /*# sourceMappingURL=index.css.map */

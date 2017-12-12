@@ -3,6 +3,15 @@ require.config({
 		"jquery":"../lib/jquery-3.2.1.min",
 		"cookie":"../lib/jquery.cookie",
 		"template":"../lib/template-web",
-		"load":"load_headfoot"
+		"load":"load_headfoot",
+		"full":"../lib/jquery.datetimepicker.full.min",
+		"min":"../lib/jquery.datetimepicker.min",
+		"cart":"cart_define",
+		"succ":"../lib/dialog"
+	},
+	shim:{
+		"succ":{
+			deps:["jquery"]
+		}
 	}
 });

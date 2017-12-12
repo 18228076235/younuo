@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/foot.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/detail.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/jquery.datetimepicker.css"/>
+		<script src="../lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/jquery.datetimepicker.full.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/jquery.datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/require.js" data-main = "../js/detail.js"></script>
+    </style>
+	</head>
+	<body>
+		<div class="showdo"></div>
+		<div id="addcart"></div>	
+		<div class="shadow"></div>	
+		<div class="header"></div>		
+		<div class="main">
+		<div class="left">
+			<div class="img"></div>
+			<p class="word"></p>
+		</div>	
+		
+		<div class="right">
+			<h6><span  class="en"></span><span class="cn"></span></h6>
+			<p class="pirc"></p>
+			<p class="count"></p>
+			<p><span class="figer"></span>&nbsp;&nbsp;&nbsp;<span class="eat"></span><br>需提前6小时预定</p>
+			<p>数量：<span class="cut"></span><input class="cont_vau" value="1"></input><span class="add_top"></span></p>					
+			<div id="data">
+				<p>请选择配送时间</p>
+			<ul>
+				<li>今天<br><span class="tday"></span><br><span></span></li>
+				<li>明天<br><span class="ndat"></span><br><span></span></li>
+				<li>后天<br><span class="tomor"></span><br><span></span></li>
+				<li><img src="../img/detail/icon_s_time.png"><br>其他<input id="datetimepicker" type="text"></li>				
+			</ul>
+			</div>	
+			<div class="mtime">
+				<span>确定</span>
+				<p><input type="text" id="houer" value=""/><input type="text" id="mint"/></p>				
+				<ul class="houer">
+					<li>08</li>
+					<li>09</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>17</li>
+					<li>18</li>
+					<li>19</li>
+				</ul>
+				<ul class="mint">
+					<li>00</li>
+					<li>30</li>
+					<li></li>
+				</ul>
+			</div>
+		<p class="add"><a href='##' class='add_cart'>加入购物车</a><a href='##' class='to_buy'>立即购物</a></p>
+		<p class="btn_last"><span class="color_c">优质原材料</span><span class="color_b">温馨提示</span></p>
+		<p class="btn_focus"><span>Focus焦点</span><span>Sweetness甜味</span></p>
+		<p class="btn_danger">如对上述食材过敏，请选择其他款蛋糕</p>
+		</div>
+		<div class="all_img">
+			<img src="../img/detail/display.png"/>			
+			<img class="bbg">
+			<img class="other"/>
+			<table cellspacing="5">
+				<tr><td>保鲜条件</td><td>收到蛋糕后如不食用请放入冰箱冷藏，0-4℃保藏12小时，5℃食用最佳，最佳食用时间2-3小时</td></tr>
+				<tr><td>配料</td><td></td></tr>
+				<tr><td>适合人群</td><td>大众</td></tr>
+				<tr><td>适合节日</td><td>任何节日</td></tr>
+			</table>
+			<img src="../img/detail/reference.png"/>
+			<img src="../img/detail/reference_detail.jpg" class="img_last"/>
+			<div class="comment">
+				<p>用户评价</p>
+				<p>暂无评论</p>
+			</div>
+		</div>
+	</div>	
+	<div class="footer"></div>
+	<!--页面跳转-->
+		<div class="sucees">
+			<p>提示信息</p>
+			<p>商品加入购物车成功</p>
+		</div>
+		<div class="footer"></div>
+	</body>
+</html>
+<script>
+$(function(){
+	$('#datetimepicker').click(function(){
+		$('#datetimepicker').css('opacity',1)
+	})
+	 $('#datetimepicker').datetimepicker({lang:'ch'});
+	 $('#s').datetimepicker({
+      lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
+      format:"Y-m-d",      //格式化日期
+      timepicker:false,    //关闭时间选项
+      yearStart:2000,     //设置最小年份
+      yearEnd:2050,        //设置最大年份
+      todayButton:false    //关闭选择今天按钮
+});
+})    
+ </script>

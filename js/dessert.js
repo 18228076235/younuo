@@ -1,16 +1,17 @@
 require(["config"],function(){
-	require(["jquery","load"],function($){	
-	if($.cookie('cart')==undefined){
-		var obj={};
-	}else{
-		var s=JSON.parse($.cookie('cart'))
-		obj = s ;
-	}
-	
+	require(["jquery","load","cookie","cart"],function($,load,cookie,cart){	
 	var dessert={
 		init:function(){
-		dessert.main()
+		this.nav()
+		this.main()
 		},
+		//导航
+		nav:function(){
+			setTimeout(function(){
+			$('.menu li').eq(1).addClass('color')				
+		},100)
+		},
+
 		main:function(){
 			var main_cont=$('#main_cont');					
 			//主要内容区
@@ -19,7 +20,7 @@ require(["config"],function(){
 				url:"../mock/dessert.json",	
 				success:function(data){
 				var str='';
-				for(var j=0;j<data.length;j++){
+				for(var j=0;j<58;j++){
 					str+='<li class="boss"><a class="out_a">'+
 							'<div class="outbig"><img src='+data[j].pic+' class="bimg"/></div>'+
 							'<div class="mword">'+
@@ -54,7 +55,8 @@ require(["config"],function(){
 				//点击购物车出现对应的购物车弹框
 				$('.outbig').click(function(){				
 					var j=$('.outbig').index(this)
-					$(this).parent().attr('href','detail/'+data[j].id+'.html')
+					$.cookie("detail",data[j].id)
+					$(this).parent().attr('href','detail001.html?cakeId='+data[j].id)
 				})
 
 				$('.out_cart').click(function(){
@@ -68,12 +70,12 @@ require(["config"],function(){
 					$('#addcart').html( $('.try_it').eq(0).css('display','block'))
 				
 					var t=$(window).scrollTop()
-					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()/2
+					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()
 					$('#addcart').css("top",h+'px')
 					//然#addcart始终居中
 					$(window).scroll(function(){
 					var t=$(window).scrollTop()
-					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()/2
+					var h=$(window).scrollTop()+$(window).height()/2-$('#addcart').height()
 					$('#addcart').css("top",h+'px')
 					})
 					
@@ -109,47 +111,28 @@ require(["config"],function(){
 						$('.to_buy').html('立即购买');
 					})
 					//如果没有登录跳转到登录页面
+					
 					$('.to_buy').click(function(){
 						$('#addcart').css('display','none')
 						if($.cookie('user')==undefined){
-							$('.to_buy').attr('href','../center/center.html')
+							$('.to_buy').attr('href','login.html')
 						}else{
+							var cont=$('.jian').next().html()
+							var j=$('.to_buy').index(this)
+							$('.to_buy').attr('href','pay_now.html?cpId='+data[j].id+'&n='+cont)
+							//console.log($('.to_buy').index())
 						}	
 					})
 					
 					//加入购物车
 					$('.add_cart').click(function(){
-						if($.cookie('user')==undefined){
-							$('.add_cart').attr('href','../center/center.html')
-						}else{
-							$('.sucees').css('display','block');
-							$('.showdo').css({display:'block',background:'rgba(255, 251, 240, 0.5)'});
-							$('.sucees').css("top",h+'px');	
-							$('#addcart').css('display','none')
-							var numid=$('.try_it').eq(m).attr('data-id')
-							var sum=Number($('.try_it em').html());
-							if(obj[numid]==undefined){
-								obj[numid]=sum;
-							}else{
-								var sum2=obj[numid];
-								sum += sum2
-								obj[numid]=sum
-							}
-							var objstr=JSON.stringify(obj);	
-							$.cookie('cart',objstr,{expires:7,path:'/'})							
-							setTimeout(function(){
-							$('.sucees').css('display','none');	
-							$('.showdo').css("display","none");	
-							
-							},1000);						
-							var totle=0;
-							var s=JSON.parse($.cookie('cart'))
-							for(var sun in s){
-								totle+=s[sun];
-							}
-							$('#shopcart a').html(totle)
-					}
+						//调用购物车
+						var id=$('.try_it').eq(m).attr('data-id')
+						var cont=Number($('.try_it em').html());
+						cart.cart(cont,id)
 					})
+					//
+					$('.showdo').css({display:'block',background:'rgba(10, 10, 10, 0.5)'})
 										
 					//点击×关闭addcart和showdo
 					var close=$('.try_it').eq(0).children().eq(0)

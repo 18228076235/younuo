@@ -1,11 +1,13 @@
 require(["config"],function(){
 	require(["jquery","load"],function($){
-		$('#checkCode').click(function(){	
-		 yaz()
+		//导航
+		setTimeout(function(){
+		$('.menu li').eq(5).addClass('color')				
+		},100)	
 		
-	})
-	
-	
+		$('#checkCode').click(function(){	
+		 yaz()	
+	})	
 	//登录验证用户名和密码是否穿在
 	$('#login_btn').click(function(){
 		//验证码判断
@@ -29,7 +31,7 @@ require(["config"],function(){
 			find()
 		}	
 		//设置cookie
-		$.cookie('user',$('#loginName').val(),{expires:7,path:'/'})	
+		$.cookie('user',$('#loginName').val(),{path:'/'})	
 		$('.sucees').css('display','block');
 			setTimeout(function(){
 			$('.sucees').css('display','none');	

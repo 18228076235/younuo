@@ -2,7 +2,6 @@ define(["jquery","cookie"],function($){
 	$.ajax("inclued/head.html").then(function(data){
 		$(".header").html(data)
 	}).then(function(){
-	window.onload=function(){
 	var head={
 		init:function(){
 			this.ear()
@@ -23,38 +22,45 @@ define(["jquery","cookie"],function($){
 		//点击导航
 		nav:function(){
 			$('.menu li').click(function(){
-				$(this).addClass('color').siblings().attr('class','')				
+				$(this).addClass('color').siblings().removeClass('color')				
 			})
 		}
 	}
 	head.init()
 		
-	//得到cooki	
-	
+	//得到是否登录成功的cooki		
 	 user_co()
-	function user_co(){		
-	if($.cookie('user')!=undefined){		
+	function user_co(){
+	if($.cookie('user')!=undefined){
+		//如果登录显示购物车的数量
+		cart()
 		$('.top_ce').css('display','none')
 		$('.top_ce').parent().css('width','248px')
 		$('.top_login').html('欢迎您:'+$.cookie('user'))
 		$('.top_regset').css('display','none');
 		var a='<a class="back">[退出]</a>'
 		$('.top_ce').next().append(a)
-		/*$('.top_ce').next(a)*/
+		$('.back').css('cursor','pointer');
+		//点击退出
 		$('.back').click(function(){
-			$.cookie('user','')			
-			})		
-			}	
+			 $.cookie('user', '', { expires: -1,path:'/' }); 
+			 //退回首页
+			 $('.back').attr('href','index.html')
+		})		
 		}	
-		//购物车数量
+	}
+	//显示购物车的数量
+	function cart(){
 		var totle=0;
 		var s=JSON.parse($.cookie('cart'))
 		for(var sun in s){
 			totle+=s[sun];
 		}
 		$('#shopcart a').html(totle)
-		}
-	})
-	$(".footer").load("inclued/foot.html");
+		$('#shopcart a').attr('href','cart.html')
+	}
 	
+	})
+	//加载尾部
+	$(".footer").load("inclued/foot.html");	
 })
